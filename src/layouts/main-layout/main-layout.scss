@@ -1,0 +1,34 @@
+@use '@/variables' as v;
+
+.main-layout {
+    display: flex;
+
+    width: 1200px;
+    min-width: 300px;
+    min-height: 600px;
+    border-radius: 25px;
+    box-shadow: v.$shadow-standart;
+
+    @include v.family();
+
+    .left-side {
+        width: 50%;
+        background-color: #fff;
+
+        border-radius: 25px;
+    }
+
+    .right-side {
+        width: 50%;
+        background-color: v.$blue-900;
+        border-radius: 25px;
+
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 100px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

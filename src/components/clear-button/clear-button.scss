@@ -1,0 +1,17 @@
+@use './variables' as v;
+
+.clear-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    color: v.$blue-300;
+    font-size: 1.1rem;
+
+    transition: color 0.3s;
+
+    &:hover {
+        cursor: pointer;
+        color: v.$blue-900;
+    }
+}

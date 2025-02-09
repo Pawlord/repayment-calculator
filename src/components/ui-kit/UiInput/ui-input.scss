@@ -1,0 +1,46 @@
+@use './variables' as v;
+
+.input-label {
+    color: v.$blue-300;
+
+    .input-container {
+        display: flex;
+        margin-top: 10px;
+        border: 1px solid v.$blue-700;
+        border-radius: 7px;
+
+        .icon {
+            padding: 10px 15px;
+            background-color: v.$blue-100;
+
+            color: v.$blue-700;
+            font-size: 1.2rem;
+            font-weight: 800;
+
+            &-left {
+                border-top-left-radius: 7px;
+                border-bottom-left-radius: 7px;
+            }
+
+            &-right {
+                border-top-right-radius: 7px;
+                border-bottom-right-radius: 7px;
+            }
+        }
+
+        .input {
+            width: 100%;
+            padding: 6px;
+            border-radius: 7px;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .input-left {
+            padding-left: 15px;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+@use './variables' as v;
+
+.title {
+    font-size: 1.6rem;
+    color: v.$blue-900;
+}

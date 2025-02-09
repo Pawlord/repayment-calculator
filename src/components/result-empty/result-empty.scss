@@ -1,0 +1,22 @@
+@use './variables' as v;
+
+.result-empty {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    text-align: center;
+
+    &__title {
+        font-size: 26px;
+        color: #fff;
+    }
+
+    &__desc {
+        color: v.$blue-700;
+        font-weight: 700;
+    }
+}

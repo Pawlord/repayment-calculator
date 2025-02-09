@@ -1,0 +1,24 @@
+@use './variables' as v;
+
+.calculate-button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px 30px;
+    border-radius: 30px;
+    background-color: v.$lime;
+
+    color: v.$blue-900;
+    @include v.family($font-size: 18px, $font-weight: 700);
+
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        background-color: v.$lime-200;
+    }
+}
