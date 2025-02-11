@@ -25,13 +25,18 @@
     }
 
     .radio-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+
+
+        grid-column: 1 / 3;
 
         .radio-title {
             @include v.family($font-size: 16px, $font-weight: 500);
             color: v.$blue-300;
         }
+    }
+
+    .calculate-button-container {
+        margin-top: 20px;
+        grid-column: 1 / 3;
     }
 }

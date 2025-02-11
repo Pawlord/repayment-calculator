@@ -1,27 +1,25 @@
+import { forwardRef } from 'react';
+import clsx from 'clsx';
+
 // Стили
 import './ui-radio.scss';
 
-export const UiRadio = ({ labelText, radioName, value, onChange, selected }) => {
-
-    const handleChange = () => {
-        onChange(value)
-    }
+export const UiRadio = forwardRef(({ labelText, value, ...props }, ref) => {
 
     return (
-        <div className='radio' onClick={handleChange}>
+        <label className={clsx('radio', props.checked && 'selected-radio')} htmlFor={value}>
 
             <input
+                ref={ref}
                 type='radio'
                 className='radio__input'
-                name={radioName}
                 id={value}
                 value={value}
-                checked={selected}
-                onChange={() => { }}
+                {...props}
             />
             <span className='radio__custom' />
 
-            <label className='radio__text' htmlFor={value}>{labelText}</label>
-        </div>
+            {labelText}
+        </label>
     )
-}
+})

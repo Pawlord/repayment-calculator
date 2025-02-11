@@ -6,9 +6,9 @@ import { CalculatorIcon } from '@/icons/calculator-icon'
 // Стили
 import './calculate-button.scss';
 
-export const CalculateButton = ({ onClick }) => {
+export const CalculateButton = () => {
     return (
-        <button className='calculate-button' onClick={onClick}>
+        <button className='calculate-button'>
             <CalculatorIcon />
             Calculate repayments
         </button>

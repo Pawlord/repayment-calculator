@@ -1,3 +1,5 @@
+@use 'variables' as v;
+
 body {
     display: flex;
     align-items: center;
@@ -12,4 +14,10 @@ body {
     position: absolute;
     bottom: 10px;
     left: 10px;
+}
+
+.error-message {
+    margin-top: 10px;
+    color: v.$red;
+    font-size: 16px;
 }

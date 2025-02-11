@@ -1,0 +1,9 @@
+@use './variables' as v;
+
+.result-title {
+    color: #fff;
+}
+
+.result-desc {
+    color: v.$blue-500;
+}

@@ -1,0 +1,38 @@
+@use './variables' as v;
+
+.result-card {
+    border-radius: 7px;
+    border-top: 7px solid v.$lime;
+    padding: 35px;
+    background-color: v.$blue-dark;
+
+    &__title,
+    &__subdesc {
+        color: v.$blue-500;
+    }
+
+    &__mounthly-price {
+        margin-block: 25px;
+        color: v.$lime;
+        @include v.family($font-size: 50px, $font-weight: 700);
+    }
+
+    &__divide-line {
+        border-bottom: 1px solid rgb(221, 221, 221);
+        margin-bottom: 20px;
+    }
+
+    &__subdesc {
+        margin-bottom: 20px;
+    }
+
+    &__total-price {
+        color: #fff;
+        @include v.family($font-size: 23px, $font-weight: 600);
+    }
+
+    &__mounthly-price,
+    &__total-price {
+        letter-spacing: 2px;
+    }
+}

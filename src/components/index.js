@@ -6,3 +6,5 @@ export { CalculateTitle } from './calculate-title/calculate-title';
 export { CalculateButton } from './calculate-button/calculate-button';
 export { ResultEmpty } from './result-empty/result-empty';
 export { ResultSide } from './result-side/result-side';
+export { ResultTitle } from './result-title/result-title';
+export { ResultCard } from './result-card/result-card';
