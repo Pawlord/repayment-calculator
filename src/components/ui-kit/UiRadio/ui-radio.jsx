@@ -4,10 +4,10 @@ import clsx from 'clsx';
 // Стили
 import './ui-radio.scss';
 
-export const UiRadio = forwardRef(({ labelText, value, ...props }, ref) => {
+export const UiRadio = forwardRef(({ labelText, value, checked, ...props }, ref) => {
 
     return (
-        <label className={clsx('radio', props.checked && 'selected-radio')} htmlFor={value}>
+        <label className={clsx('radio', checked && 'selected-radio')} htmlFor={value}>
 
             <input
                 ref={ref}
