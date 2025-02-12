@@ -39,10 +39,12 @@
             width: 100%;
         }
 
-        .right-side {
-            border-top-right-radius: 0;
-            border-bottom-left-radius: 25px;
+        .right-side,
+        .left-side {
+            border-radius: 0;
         }
+
+        border-radius: 0;
     }
 
     @media(max-width: 650px) {

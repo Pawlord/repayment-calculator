@@ -21,3 +21,16 @@ body {
     color: v.$red;
     font-size: 16px;
 }
+
+@media (max-width: 650px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 15px;
+
+        .attribution {
+            position: static;
+        }
+    }
+}
