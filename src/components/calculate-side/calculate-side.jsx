@@ -13,8 +13,10 @@ import { PaymentContext } from '@/context/payment-context';
 
 export const CalculateSide = () => {
 
-    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const { handleCalculateResult } = useContext(PaymentContext)
+
+    const mortgageCategory = watch('mortgageCategory');
 
     const onSubmit = (data) => {
         const numberData = Object.fromEntries(Object.entries(data).map(([key, value]) => {
@@ -32,10 +34,15 @@ export const CalculateSide = () => {
         handleCalculateResult(monthlyPayment, totalRepayment);
     }
 
+    const handleClearAll = () => {
+        reset();
+        handleCalculateResult(0, 0);
+    }
+
     return (
         <CalculateLayout
             title={<CalculateTitle />}
-            clearButton={<ClearButton />}
+            clearButton={<ClearButton onClick={handleClearAll} />}
             errors={errors}
             onSubmit={onSubmit}
             handleSubmit={handleSubmit}
@@ -47,6 +54,7 @@ export const CalculateSide = () => {
                 <UiRadio
                     labelText='Repayment'
                     value={'repayment'}
+                    checkedRadio={mortgageCategory}
                     {...register('mortgageCategory', { required: true })}
                 />
             }
@@ -54,6 +62,7 @@ export const CalculateSide = () => {
                 <UiRadio
                     labelText={'Interest only'}
                     value={'interest'}
+                    checkedRadio={mortgageCategory}
                     {...register('mortgageCategory', { required: true })}
                 />
             }
