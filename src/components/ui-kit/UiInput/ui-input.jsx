@@ -31,6 +31,7 @@ export const UiInput = forwardRef(({ direction = 'left', icon, inputType, labelT
                                     name={name}
                                     className='input'
                                     type={inputType}
+                                    pattern="^[^.,]*[.,]?[^.,]*$"
                                     {...register(name, { validate: validationInput })}
                                     {...props}
                                     onFocus={handleFocus}
@@ -45,6 +46,7 @@ export const UiInput = forwardRef(({ direction = 'left', icon, inputType, labelT
                                     name={name}
                                     {...props}
                                     className='input'
+                                    pattern="^[^.,]*[.,]?[^.,]*$"
                                     type={inputType}
                                     {...register(name, { validate: validationInput })}
                                     onFocus={handleFocus}

@@ -3,6 +3,11 @@ export const validateInput = (value) => {
         return 'This field is required';
     }
 
+    const count = (value.split('.').length - 1) + (value.split(',').length - 1);
+    if (count > 1) {
+        return 'Incorrect format';
+    }
+
     const regex = /^[0-9.,]+$/;
     if (!regex.test(value.trim())) {
         return 'Only numbers and , .';

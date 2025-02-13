@@ -25,12 +25,14 @@ export const CalculateSide = () => {
     const onSubmit = (data) => {
         const numberData = Object.fromEntries(Object.entries(data).map(([key, value]) => {
             let convertedString = convertNumberFormat(value);
+            console.log(!isNaN((convertedString)))
             if (!isNaN((convertedString))) {
                 return [key, convertToNumber(convertedString)]
             } else {
                 return [key, value];
             }
         }))
+
 
         const monthlyPayment = calculatePayment(numberData.mortgageAmount, numberData.mortgageTerm, numberData.interestRate);
         const totalRepayment = calculateTotalRepayment(monthlyPayment, numberData.mortgageTerm);
