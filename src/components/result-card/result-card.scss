@@ -15,6 +15,10 @@
         margin-block: 25px;
         color: v.$lime;
         @include v.family($font-size: 50px, $font-weight: 700);
+
+        @media (max-width: 1200px) {
+            font-size: 38px;
+        }
     }
 
     &__divide-line {
