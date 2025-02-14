@@ -23,16 +23,15 @@ export const CalculateSide = () => {
     const input3Ref = useRef(null);
 
     const onSubmit = (data) => {
+        console.log(data)
         const numberData = Object.fromEntries(Object.entries(data).map(([key, value]) => {
             let convertedString = convertNumberFormat(value);
-            console.log(!isNaN((convertedString)))
             if (!isNaN((convertedString))) {
                 return [key, convertToNumber(convertedString)]
             } else {
                 return [key, value];
             }
         }))
-
 
         const monthlyPayment = calculatePayment(numberData.mortgageAmount, numberData.mortgageTerm, numberData.interestRate);
         const totalRepayment = calculateTotalRepayment(monthlyPayment, numberData.mortgageTerm);
@@ -62,77 +61,75 @@ export const CalculateSide = () => {
     }
 
     return (
-        <>
-            <CalculateLayout
-                title={<CalculateTitle />}
-                clearButton={<ClearButton onClick={handleClearAll} />}
-                errors={errors}
-                onSubmit={onSubmit}
-                handleSubmit={handleSubmit}
-                amountInput={
-                    <UiInput
-                        icon='£'
-                        inputType='text'
-                        inputMode='numeric'
-                        labelText='Mortgage amount'
-                        name='mortgageAmount'
-                        register={register}
-                        validationInput={validateInput}
-                        errors={errors}
-                        ref={input1Ref}
-                        onKeyDown={e => handleKeyDown(e)}
-                    />
-                }
-                termInput={
-                    <UiInput
-                        icon='years'
-                        inputType='text'
-                        inputMode='numeric'
-                        name='mortgageTerm'
-                        labelText='Mortgage term'
-                        direction='right'
-                        register={register}
-                        validationInput={validateInput}
-                        errors={errors}
-                        ref={input2Ref}
-                        onKeyDown={e => handleKeyDown(e)}
-                    />
-                }
-                intRateInput={
-                    <UiInput
-                        icon='%'
-                        inputType='text'
-                        inputMode='numeric'
-                        name='interestRate'
-                        labelText='Interest Rate'
-                        direction='right'
-                        register={register}
-                        validationInput={validateInput}
-                        errors={errors}
-                        ref={input3Ref}
-                        onKeyDown={e => handleKeyDown(e)}
-                    />
-                }
-                radioTitle={'Mortgage type'}
-                radioRepayment={
-                    <UiRadio
-                        labelText='Repayment'
-                        value={'repayment'}
-                        checkedRadio={mortgageCategory}
-                        {...register('mortgageCategory', { required: true })}
-                    />
-                }
-                radioInterest={
-                    <UiRadio
-                        labelText={'Interest only'}
-                        value={'interest'}
-                        checkedRadio={mortgageCategory}
-                        {...register('mortgageCategory', { required: true })}
-                    />
-                }
-                calculateButton={<CalculateButton />}
-            />
-        </>
+        <CalculateLayout
+            title={<CalculateTitle />}
+            clearButton={<ClearButton onClick={handleClearAll} />}
+            errors={errors}
+            onSubmit={onSubmit}
+            handleSubmit={handleSubmit}
+            amountInput={
+                <UiInput
+                    icon='£'
+                    inputType='text'
+                    inputMode='numeric'
+                    labelText='Mortgage amount'
+                    name='mortgageAmount'
+                    register={register}
+                    validationInput={validateInput}
+                    errors={errors}
+                    ref={input1Ref}
+                    onKeyDown={e => handleKeyDown(e)}
+                />
+            }
+            termInput={
+                <UiInput
+                    icon='years'
+                    inputType='number'
+                    inputMode='numeric'
+                    name='mortgageTerm'
+                    labelText='Mortgage term'
+                    direction='right'
+                    register={register}
+                    validationInput={validateInput}
+                    errors={errors}
+                    ref={input2Ref}
+                    onKeyDown={e => handleKeyDown(e)}
+                />
+            }
+            intRateInput={
+                <UiInput
+                    icon='%'
+                    inputType='text'
+                    inputMode='numeric'
+                    name='interestRate'
+                    labelText='Interest Rate'
+                    direction='right'
+                    register={register}
+                    validationInput={validateInput}
+                    errors={errors}
+                    ref={input3Ref}
+                    onKeyDown={e => handleKeyDown(e)}
+                />
+            }
+            radioTitle={'Mortgage type'}
+            radioRepayment={
+                <UiRadio
+                    labelText='Repayment'
+                    value={'repayment'}
+                    checkedRadio={mortgageCategory}
+                    {...register('mortgageCategory', { required: true })}
+                />
+            }
+            radioInterest={
+                <UiRadio
+                    labelText={'Interest only'}
+                    value={'interest'}
+                    checkedRadio={mortgageCategory}
+                    {...register('mortgageCategory', { required: true })}
+                />
+            }
+            calculateButton={<CalculateButton />}
+        />
     )
 
 }

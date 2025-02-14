@@ -14,7 +14,6 @@ export const UiInput = forwardRef(({ direction = 'left', icon, inputType, labelT
 
     const handleBlur = (e) => {
         setIsFocus(false);
-        props.onBlur && props.onBlur(e);
     }
 
     return (
